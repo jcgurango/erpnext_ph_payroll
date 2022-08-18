@@ -1,3 +1,5 @@
+import frappe
+from frappe import utils
 from . import __version__ as app_version
 
 app_name = "erpnext_ph_payroll"
@@ -8,6 +10,63 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "jc@jcgurango.com"
 app_license = "MIT"
+
+fixtures = [
+	{"dt": "Report", "filters": [["name", "like", "PH - %"]]},
+	{"dt": "Salary Component", "filters": [["disabled", "=", False], ["name", "like", "PH - %"]]},
+]
+
+salary_data_extensions = [
+	lambda salary_slip: {
+		'ph_sss': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_contribution'),
+		'ph_sss_er': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employer_contribution'),
+		'ph_sss_ec': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_compensation'),
+		'ph_13th_month_pay': lambda: calculate_13th_month_pay(salary_slip)
+	}
+]
+
+def calculate_sss_contribution(pay, date, field='employee_contribution'):
+	contribution_table = frappe.db.get_list('SSS Contribution',
+		filters=[
+			['effective_date', '<=', date],
+		],
+		order_by='effective_date desc',
+		pluck='name'
+	)
+
+	if len(contribution_table):
+		contribution_table = frappe.get_doc('SSS Contribution', contribution_table[0])
+
+		for row in contribution_table.contribution_table:
+			if pay >= row.from_amount and (pay <= row.to_amount or not row.to_amount or row.to_amount <= 0):
+				return row.get(field)
+
+	return 0
+
+def calculate_13th_month_pay(salary_slip):
+	effective_year = utils.getdate(salary_slip.posting_date).year
+
+	if utils.getdate(salary_slip.posting_date).month <= 4:
+		# Last year
+		effective_year -= 1
+
+	gross_pay = frappe.db.sql("""
+		SELECT sum(detail.amount) as sum
+		FROM `tabSalary Detail` as detail
+		INNER JOIN `tabSalary Slip` as salary_slip
+		ON detail.parent = salary_slip.name
+		WHERE
+			salary_slip.employee = %(employee)s
+			AND detail.parentfield = 'earnings'
+			AND YEAR(salary_slip.posting_date) >= %(effective_year)s
+			AND YEAR(salary_slip.posting_date) <= %(effective_year)s
+			AND salary_slip.name != %(docname)s
+			AND detail.is_13th_month_pay_applicable = 1
+			AND salary_slip.docstatus = 1""",
+			{'employee': salary_slip.employee, 'effective_year': effective_year, 'docname': salary_slip.name}
+	)
+
+	return (gross_pay[0][0] if gross_pay else 0) / 12
 
 # Includes in <head>
 # ------------------
