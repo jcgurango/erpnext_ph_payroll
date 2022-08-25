@@ -14,6 +14,7 @@ app_license = "MIT"
 fixtures = [
 	{"dt": "Report", "filters": [["name", "like", "PH - %"]]},
 	{"dt": "Salary Component", "filters": [["disabled", "=", False], ["name", "like", "PH - %"]]},
+	{"dt": "Salary Structure", "filters": [["docstatus", "=", "1"], ["name", "like", "PH - %"]]},
 ]
 
 salary_data_extensions = [
@@ -39,7 +40,10 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 
 		for row in contribution_table.contribution_table:
 			if pay >= row.from_amount and (pay <= row.to_amount or not row.to_amount or row.to_amount <= 0):
-				return row.get(field)
+				base = row.get(field)
+				mpf = 0
+
+				return base + mpf
 
 	return 0
 
@@ -66,7 +70,7 @@ def calculate_13th_month_pay(salary_slip):
 			{'employee': salary_slip.employee, 'effective_year': effective_year, 'docname': salary_slip.name}
 	)
 
-	return (gross_pay[0][0] if gross_pay else 0) / 12
+	return ((gross_pay[0][0] if gross_pay else 0) or 0) / 12
 
 # Includes in <head>
 # ------------------

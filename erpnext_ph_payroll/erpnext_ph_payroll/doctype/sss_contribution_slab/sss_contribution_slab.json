@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-07-22 19:10:39.447059",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_amount",
+  "to_amount",
+  "employee_contribution",
+  "employer_contribution",
+  "employee_compensation",
+  "mpf_employee_contribution",
+  "mpf_employer_contribution"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "From Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "To Amount"
+  },
+  {
+   "fieldname": "employee_contribution",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Employee Contribution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employer_contribution",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Employer Contribution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_compensation",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Employee Compensation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mpf_employee_contribution",
+   "fieldtype": "Currency",
+   "label": "MPF Employee Contribution",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mpf_employer_contribution",
+   "fieldtype": "Currency",
+   "label": "MPF Employer Contribution",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-08-25 17:00:40.684944",
+ "modified_by": "Administrator",
+ "module": "ERPNext PH Payroll",
+ "name": "SSS Contribution Slab",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
