@@ -1,5 +1,6 @@
 [
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and not legal_holiday",
@@ -16,12 +17,13 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 1,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
   "is_tax_applicable": 1,
   "max_benefit_amount": 0.0,
-  "modified": "2022-07-28 12:41:50.098593",
+  "modified": "2022-08-25 22:47:47.178347",
   "module": null,
   "name": "PH - REG",
   "only_tax_impact": 0,
@@ -37,6 +39,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and not legal_holiday",
@@ -53,6 +56,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -74,6 +78,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and not legal_holiday",
@@ -90,6 +95,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -111,6 +117,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and not legal_holiday",
@@ -127,6 +134,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -148,6 +156,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and not legal_holiday",
@@ -164,6 +173,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -185,6 +195,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and not legal_holiday",
@@ -201,6 +212,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -222,6 +234,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and not legal_holiday",
@@ -238,6 +251,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -259,6 +273,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and not legal_holiday",
@@ -275,6 +290,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -296,6 +312,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and special_holiday and not legal_holiday",
@@ -312,6 +329,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -333,6 +351,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and special_holiday and not legal_holiday",
@@ -349,6 +368,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -370,6 +390,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and special_holiday and not legal_holiday",
@@ -386,6 +407,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -407,6 +429,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and special_holiday and not legal_holiday",
@@ -423,6 +446,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -444,6 +468,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and legal_holiday",
@@ -460,6 +485,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -481,6 +507,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and legal_holiday",
@@ -497,6 +524,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -518,6 +546,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and legal_holiday",
@@ -534,6 +563,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -555,6 +585,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "not rest_day and not special_holiday and legal_holiday",
@@ -571,6 +602,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -592,6 +624,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and special_holiday and not legal_holiday",
@@ -608,6 +641,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -629,6 +663,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and special_holiday and not legal_holiday",
@@ -645,6 +680,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -666,6 +702,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and special_holiday and not legal_holiday",
@@ -682,6 +719,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -703,6 +741,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and special_holiday and not legal_holiday",
@@ -719,6 +758,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -740,6 +780,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and legal_holiday",
@@ -756,6 +797,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -777,6 +819,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and legal_holiday",
@@ -793,6 +836,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -814,6 +858,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and legal_holiday",
@@ -830,6 +875,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -851,6 +897,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "rest_day and not special_holiday and legal_holiday",
@@ -867,6 +914,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -888,7 +936,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
-  "_liked_by": "[]",
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -901,16 +949,17 @@
   "docstatus": 0,
   "doctype": "Salary Component",
   "exempted_from_income_tax": 0,
-  "formula": "(137.5 if gross_pay <= 10000 else\n    (550 if gross_pay >= 40000 else\n        (0.04 * gross_pay)))\n        * 0.5\n",
+  "formula": "(0.04 * basic_pay) * 0.5\n",
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Monthly",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
   "is_tax_applicable": 1,
   "max_benefit_amount": 0.0,
-  "modified": "2022-07-28 12:49:26.781786",
+  "modified": "2022-08-25 22:48:25.366972",
   "module": null,
   "name": "PH - PHIC Contribution",
   "only_tax_impact": 0,
@@ -926,7 +975,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
-  "_liked_by": "[]",
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -943,6 +992,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Monthly",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -964,6 +1014,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -980,6 +1031,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1001,6 +1053,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1017,6 +1070,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1038,6 +1092,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1054,6 +1109,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Monthly",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1075,6 +1131,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1087,16 +1144,17 @@
   "docstatus": 0,
   "doctype": "Salary Component",
   "exempted_from_income_tax": 0,
-  "formula": "(137.5 if gross_pay <= 10000 else\n    (550 if gross_pay >= 40000 else\n        (0.04 * gross_pay)))\n        * 0.5\n",
+  "formula": "(0.04 * basic_pay) * 0.5\n",
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Monthly",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
   "is_tax_applicable": 1,
   "max_benefit_amount": 0.0,
-  "modified": "2022-07-27 12:42:50.092130",
+  "modified": "2022-08-25 22:48:34.880529",
   "module": null,
   "name": "PH - PHIC Employer Contribution",
   "only_tax_impact": 0,
@@ -1112,6 +1170,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "",
@@ -1128,12 +1187,13 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 1,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
   "is_tax_applicable": 1,
   "max_benefit_amount": 0.0,
-  "modified": "2022-07-28 12:42:32.504952",
+  "modified": "2022-08-25 22:47:50.948343",
   "module": null,
   "name": "PH - REG Fixed Monthly Salary",
   "only_tax_impact": 0,
@@ -1149,6 +1209,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1165,6 +1226,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1186,6 +1248,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "",
@@ -1202,6 +1265,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1217,12 +1281,13 @@
   "pay_against_benefit_claim": 0,
   "round_to_the_nearest_integer": 0,
   "salary_component": "PH - 13th Month Pay",
-  "salary_component_abbr": "PH_13M",
+  "salary_component_abbr": "PH_13M_1",
   "statistical_component": 0,
   "type": "Earning",
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1239,6 +1304,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1260,6 +1326,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "",
@@ -1276,6 +1343,7 @@
   "formula_based_on_attendance": 1,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
@@ -1297,6 +1365,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": "",
@@ -1313,12 +1382,13 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 1,
+  "is_basic_pay": 1,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
   "is_tax_applicable": 1,
   "max_benefit_amount": 0.0,
-  "modified": "2022-08-16 17:17:38.176486",
+  "modified": "2022-08-25 22:47:54.743413",
   "module": null,
   "name": "PH - REG Fixed Bimonthly Salary",
   "only_tax_impact": 0,
@@ -1334,7 +1404,7 @@
   "variable_based_on_taxable_salary": 0
  },
  {
-  "_liked_by": "[]",
+  "accounts": [],
   "amount": 0.0,
   "amount_based_on_formula": 1,
   "condition": null,
@@ -1351,6 +1421,7 @@
   "formula_based_on_attendance": 0,
   "formula_effectivity": "Period",
   "is_13th_month_pay_applicable": 0,
+  "is_basic_pay": 0,
   "is_flexible_benefit": 0,
   "is_income_tax_component": 0,
   "is_standard": 0,
