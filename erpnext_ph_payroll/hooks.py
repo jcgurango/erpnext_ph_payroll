@@ -15,6 +15,7 @@ fixtures = [
 	{"dt": "Report", "filters": [["name", "like", "PH - %"]]},
 	{"dt": "Salary Component", "filters": [["disabled", "=", False], ["name", "like", "PH - %"]]},
 	{"dt": "Salary Structure", "filters": [["docstatus", "=", "1"], ["name", "like", "PH - %"]]},
+	{"dt": "PH Withholding Tax Table"},
 ]
 
 salary_data_extensions = [
