@@ -22,6 +22,7 @@ salary_data_extensions = [
 		'ph_sss': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_contribution'),
 		'ph_sss_er': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employer_contribution'),
 		'ph_sss_ec': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_compensation'),
+		'ph_wtax': lambda pay: calculate_withholding_tax(pay, salary_slip.posting_date),
 		'ph_13th_month_pay': lambda: calculate_13th_month_pay(salary_slip)
 	}
 ]
@@ -30,6 +31,7 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 	contribution_table = frappe.db.get_list('SSS Contribution',
 		filters=[
 			['effective_date', '<=', date],
+			['docstatus', '=', 1]
 		],
 		order_by='effective_date desc',
 		pluck='name'
@@ -44,6 +46,28 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 				mpf = 0
 
 				return base + mpf
+
+	return 0
+
+def calculate_withholding_tax(pay, date, basis='monthly'):
+	withholding_table = frappe.db.get_list('PH Withholding Tax Table',
+		filters=[
+			['effective_date', '<=', date],
+			['docstatus', '=', 1],
+		],
+		order_by='effective_date desc',
+		pluck='name'
+	)
+
+	if len(withholding_table):
+		withholding_table = frappe.get_doc('PH Withholding Tax Table', withholding_table[0])
+		total_amount = 0
+
+		for row in withholding_table.slabs:
+			if pay >= row.from_amount:
+				total_amount += min(pay - row.from_amount, row.to_amount - row.from_amount) * (row.percent_withheld / 100)
+
+		return total_amount
 
 	return 0
 
