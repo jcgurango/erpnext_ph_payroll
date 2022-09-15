@@ -1203,7 +1203,7 @@
   "pay_against_benefit_claim": 0,
   "round_to_the_nearest_integer": 0,
   "salary_component": "PH - REG (Fixed)",
-  "salary_component_abbr": "PH_REG_M",
+  "salary_component_abbr": "PH_REG_F",
   "statistical_component": 0,
   "type": "Earning",
   "variable_based_on_taxable_salary": 0
