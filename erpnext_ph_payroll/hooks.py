@@ -46,6 +46,9 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 				base = row.get(field)
 				mpf = 0
 
+				if row.get('mpf_' + field):
+					mpf = row.get('mpf_' + field)
+
 				return base + mpf
 
 	return 0
