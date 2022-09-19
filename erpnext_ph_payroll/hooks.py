@@ -23,7 +23,7 @@ salary_data_extensions = [
 		'ph_sss': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_contribution'),
 		'ph_sss_er': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employer_contribution'),
 		'ph_sss_ec': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_compensation'),
-		'ph_wtax': lambda pay: calculate_withholding_tax(pay, salary_slip.posting_date, salary_slip),
+		'ph_wtax': lambda: calculate_withholding_tax(salary_slip.posting_date, salary_slip),
 		'ph_13th_month_pay': lambda: calculate_13th_month_pay(salary_slip)
 	}
 ]
