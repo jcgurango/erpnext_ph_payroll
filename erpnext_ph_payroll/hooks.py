@@ -50,7 +50,7 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 
 	return 0
 
-def calculate_withholding_tax(pay, date, salary_slip, basis='monthly'):
+def calculate_withholding_tax(date, salary_slip, basis='monthly'):
 	net_pay = salary_slip.gross_pay
 
 	for deduction in (salary_slip.get('deductions') or []):
