@@ -28,6 +28,8 @@ salary_data_extensions = [
 	}
 ]
 
+salary_component_fields = ['is_13th_month_pay_applicable']
+
 def calculate_sss_contribution(pay, date, field='employee_contribution'):
 	contribution_table = frappe.db.get_list('SSS Contribution',
 		filters=[
