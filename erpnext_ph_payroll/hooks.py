@@ -108,12 +108,14 @@ def calculate_13th_month_pay(salary_slip):
 			{'employee': salary_slip.employee, 'effective_year': effective_year, 'docname': salary_slip.name}
 	)
 
+	gross_pay = ((gross_pay[0][0] if gross_pay else 0) or 0)
+
 	if utils.getdate(salary_slip.posting_date).year == effective_year:
 		for earning in salary_slip.earnings:
 			if utils.cint(earning.is_13th_month_pay_applicable):
 				gross_pay += earning.amount
 
-	return ((gross_pay[0][0] if gross_pay else 0) or 0) / 12
+	return gross_pay / 12
 
 # Includes in <head>
 # ------------------
