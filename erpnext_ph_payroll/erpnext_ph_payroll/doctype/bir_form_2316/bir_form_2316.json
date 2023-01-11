@@ -1,0 +1,162 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:BIR2316-{employee_id}-{period_from}-{period_to}",
+ "creation": "2023-01-10 23:42:02.611953",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "period_from",
+  "period_to",
+  "employee_tin",
+  "employee",
+  "employee_name",
+  "employee_id",
+  "employee_rdo",
+  "employee_address",
+  "employee_zip",
+  "employee_local_address",
+  "employee_local_zip",
+  "employee_dob",
+  "employee_contact_number",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "period_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period To",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_tin",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Taxpayer Identification Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee_rdo",
+   "fieldtype": "Data",
+   "label": "Employee RDO"
+  },
+  {
+   "fieldname": "employee_address",
+   "fieldtype": "Small Text",
+   "label": "Registered Address"
+  },
+  {
+   "fieldname": "employee_zip",
+   "fieldtype": "Data",
+   "label": "Registered Address Zip"
+  },
+  {
+   "fieldname": "employee_local_address",
+   "fieldtype": "Small Text",
+   "label": "Local Home Address"
+  },
+  {
+   "fieldname": "employee_local_zip",
+   "fieldtype": "Data",
+   "label": "Local Home Address Zip"
+  },
+  {
+   "fetch_from": "employee.date_of_birth",
+   "fieldname": "employee_dob",
+   "fieldtype": "Date",
+   "label": "Employee Date of Birth"
+  },
+  {
+   "fetch_from": "employee.employee",
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID"
+  },
+  {
+   "fieldname": "employee_contact_number",
+   "fieldtype": "Data",
+   "label": "Employee Contact Number"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "BIR Form 2316",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-01-11 00:09:03.832006",
+ "modified_by": "Administrator",
+ "module": "ERPNext PH Payroll",
+ "name": "BIR Form 2316",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
