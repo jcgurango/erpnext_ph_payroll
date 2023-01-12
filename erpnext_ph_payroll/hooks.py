@@ -13,7 +13,7 @@ app_license = "MIT"
 
 fixtures = [
 	{"dt": "Report", "filters": [["name", "like", "PH - %"]]},
-	{"dt": "Form Fill Template", "filters": [["name", "like", "PH - %"]]},
+	{"dt": "Form Fill Template", "filters": [["name", "like", "PH Payroll - %"]]},
 	{"dt": "Salary Component", "filters": [["disabled", "=", False], ["name", "like", "PH - %"]]},
 	{"dt": "Salary Structure", "filters": [["docstatus", "=", "1"], ["name", "like", "PH - %"]]},
 	{"dt": "PH Withholding Tax Table"},
