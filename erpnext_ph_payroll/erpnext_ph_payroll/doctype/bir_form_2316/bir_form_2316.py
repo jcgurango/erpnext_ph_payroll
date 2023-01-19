@@ -15,12 +15,12 @@ class BIRForm2316(Document):
 			formatted_data.employee_dob = utils.get_datetime(data.employee_dob).strftime('%m%d%Y')
 
 		if formatted_data.employer_type == 'Main':
-			formatted_data.is_main_employer = '✓'
+			formatted_data.is_main_employer = 'X'
 		else:
-			formatted_data.is_secondary_employer = '✓'
+			formatted_data.is_secondary_employer = 'X'
 
 		if data.minimum_wage_earner:
-			formatted_data.is_mwe = '✓'
+			formatted_data.is_mwe = 'X'
 
 		if formatted_data.get('employee_contact_number'):
 			formatted_data['employee_contact_number'] = formatted_data['employee_contact_number'].replace(' ', '')
@@ -88,6 +88,8 @@ class BIRForm2316(Document):
 		self.contributions = float(amounts.get('PH_SSS', 0)) + float(amounts.get('PH_PHIC', 0)) + float(amounts.get('PH_HDMF', 0))
 		self.basic_pay = amounts.get('BASIC_PAY', 0)
 		self.overtime_pay = amounts.get('PH_REG_OT', 0)
+		self.tax_due = amounts.get('PH_WTAX', 0)
+		self.present_employer_tax_withheld = amounts.get('PH_WTAX', 0)
 		self.recompute_totals()
 
 	@frappe.whitelist()
