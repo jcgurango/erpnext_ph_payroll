@@ -29,8 +29,7 @@ def download_bulk(doctype, docs):
 @frappe.whitelist()
 def preview_form(doctype, docname):
   form_template = frappe.get_doc(doctype, docname)
-  form_fill_template = frappe.get_doc('Form Fill Template', form_template.get_form_fill_template())
-  form_fill_data = form_fill_template.fill_document(form_template.get_form_fill_data())
+  form_fill_data = form_template.create_form_fill_pdf()
   frappe.response['type'] = 'pdf'
   frappe.response['filename'] = 'preview.pdf'
   frappe.response['filecontent'] = form_fill_data

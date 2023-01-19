@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-01-20 04:48:28.810569",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "month",
+  "date_of_remittance",
+  "drawee_bank",
+  "tra_number",
+  "taxes_withheld",
+  "adjustment",
+  "penalties",
+  "total_amount_remitted"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "month",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Month",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "bold": 1,
+   "columns": 1,
+   "fieldname": "date_of_remittance",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Remittance"
+  },
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "drawee_bank",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Drawee Bank/Bank Code/Agency"
+  },
+  {
+   "bold": 1,
+   "columns": 2,
+   "fieldname": "tra_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "TRA/eROR/eAR Number"
+  },
+  {
+   "columns": 1,
+   "fieldname": "taxes_withheld",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Taxes Withheld"
+  },
+  {
+   "columns": 1,
+   "fieldname": "adjustment",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Adjustment"
+  },
+  {
+   "columns": 1,
+   "fieldname": "penalties",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Penalties"
+  },
+  {
+   "columns": 1,
+   "fieldname": "total_amount_remitted",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount Remitted",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-01-20 05:26:05.671873",
+ "modified_by": "Administrator",
+ "module": "ERPNext PH Payroll",
+ "name": "BIR Form 1604C Month",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

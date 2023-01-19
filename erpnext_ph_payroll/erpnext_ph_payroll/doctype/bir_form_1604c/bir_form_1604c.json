@@ -1,0 +1,178 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:BIR1604C-{year}-####",
+ "creation": "2023-01-20 03:41:10.494972",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "amended_return",
+  "number_of_sheets_attached",
+  "tin",
+  "rdo",
+  "withholding_agent_name",
+  "registered_address",
+  "zip",
+  "category_of_withholding_agent",
+  "top_withholding_agent",
+  "contact_number",
+  "email_address",
+  "refund_released",
+  "refund_date",
+  "overremittance_amount",
+  "month_of_first_crediting_of_overremittance",
+  "summary_of_remittances",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "For the Year (20YY)",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "amended_return",
+   "fieldtype": "Check",
+   "label": "Amended Return"
+  },
+  {
+   "fieldname": "number_of_sheets_attached",
+   "fieldtype": "Int",
+   "label": "Number of Sheets Attached",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tin",
+   "fieldtype": "Data",
+   "label": "Taxpayer Identification Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rdo",
+   "fieldtype": "Data",
+   "label": "RDO Code",
+   "reqd": 1
+  },
+  {
+   "description": "Last Name, First Name, Middle Name for Individual OR Registered Name for Non-Individual",
+   "fieldname": "withholding_agent_name",
+   "fieldtype": "Data",
+   "label": "Withholding Agent Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "registered_address",
+   "fieldtype": "Small Text",
+   "label": "Registered Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "zip",
+   "fieldtype": "Data",
+   "label": "Zip Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category_of_withholding_agent",
+   "fieldtype": "Select",
+   "label": "Category of Withholding Agent",
+   "options": "Private\nGovernment",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.category_of_withholding_agent=='Private'",
+   "fieldname": "top_withholding_agent",
+   "fieldtype": "Check",
+   "label": "Top Withholding Agent",
+   "mandatory_depends_on": "doc.category_of_withholding_agent=='Private'"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "BIR Form 1604C",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "label": "Contact Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_address",
+   "fieldtype": "Data",
+   "label": "Email Address",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "In case of overwithholding/overremittance after the year-end adjustments on compensation, have you released the refund/s to your employees?",
+   "fieldname": "refund_released",
+   "fieldtype": "Check",
+   "label": "Refund Released"
+  },
+  {
+   "depends_on": "refund_released",
+   "description": "Total amount of overremittance on Tax withheld under compensation",
+   "fieldname": "overremittance_amount",
+   "fieldtype": "Currency",
+   "label": "Overremittance Amount",
+   "mandatory_depends_on": "refund_released"
+  },
+  {
+   "depends_on": "refund_released",
+   "fieldname": "refund_date",
+   "fieldtype": "Date",
+   "label": "Refund Date",
+   "mandatory_depends_on": "refund_released"
+  },
+  {
+   "depends_on": "refund_released",
+   "fieldname": "month_of_first_crediting_of_overremittance",
+   "fieldtype": "Select",
+   "label": "Month of First Crediting of Overremittance (MM)",
+   "options": "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember"
+  },
+  {
+   "fieldname": "summary_of_remittances",
+   "fieldtype": "Table",
+   "label": "Summary of Remittances",
+   "options": "BIR Form 1604C Month"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-01-20 05:26:26.568036",
+ "modified_by": "Administrator",
+ "module": "ERPNext PH Payroll",
+ "name": "BIR Form 1604C",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

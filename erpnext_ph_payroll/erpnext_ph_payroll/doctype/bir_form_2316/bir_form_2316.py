@@ -3,9 +3,9 @@
 
 import frappe
 from frappe import utils
-from frappe.model.document import Document
+from erpnext_ph_payroll.erpnext_ph_payroll.doctype.bir_form import BIRForm
 
-class BIRForm2316(Document):
+class BIRForm2316(BIRForm):
 	def format_data(self, data, formatted_data):
 		formatted_data.year = utils.get_datetime(data.period_from).year
 		formatted_data.period_from = utils.get_datetime(data.period_from).strftime('%m%d')
@@ -104,38 +104,5 @@ class BIRForm2316(Document):
 	def before_insert(self):
 		self.retrieve_data()
 
-	def get_form_fill_data(self):
-		data = self.get_valid_dict()
-		formatted_data = self.get_valid_dict()
-
-		for field in self.meta.fields:
-			if data.get(field.fieldname) != None:
-				formatted_data[field.fieldname] = frappe.format(data.get(field.fieldname), field)
-
-		data = self.format_data(data, formatted_data)
-		remove_list = []
-
-		for key in formatted_data:
-			if data.get(key) == None or data.get(key) == '':
-				remove_list.append(key)
-		
-		for key in remove_list:
-			formatted_data.pop(key)
-
-		return formatted_data
-
 	def get_form_fill_template(self):
 		return 'PH Payroll - BIR-2316'
-
-	def on_submit(self):
-		form_fill_template = frappe.get_doc('Form Fill Template', self.get_form_fill_template())
-		form_fill_data = form_fill_template.fill_document(self.get_form_fill_data())
-		file = frappe.get_doc({
-			'doctype': 'File',
-			'file_name': self.name + '.pdf',
-			'attached_to_name': self.name,
-			'attached_to_doctype': self.doctype,
-			"folder": 'Home/Attachments',
-			'content': form_fill_data})
-		file.save()
-		frappe.msgprint('The generated form has been attached in PDF format.', 'PDF Generated')
