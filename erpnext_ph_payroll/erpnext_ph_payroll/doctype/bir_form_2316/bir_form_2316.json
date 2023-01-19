@@ -2,24 +2,61 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:BIR2316-{employee_id}-{period_from}-{period_to}",
- "creation": "2023-01-10 23:42:02.611953",
+ "creation": "2023-01-19 20:50:37.977191",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "period_from",
   "period_to",
-  "employee_tin",
   "employee",
+  "retrieve_data",
+  "employee_tin",
   "employee_name",
   "employee_id",
   "employee_rdo",
+  "column_break_14",
   "employee_address",
   "employee_zip",
   "employee_local_address",
   "employee_local_zip",
+  "employee_foreign_address",
   "employee_dob",
   "employee_contact_number",
+  "basic_rate_per_day",
+  "basic_rate_per_month",
+  "minimum_wage_earner",
+  "employer_details_section",
+  "employer_name",
+  "employer_tin",
+  "employer_address",
+  "employer_zip",
+  "employer_type",
+  "column_break_25",
+  "previous_employer_name",
+  "previous_employer_tin",
+  "previous_employer_address",
+  "previous_employer_zip",
+  "summary_section",
+  "gross_compensation",
+  "non_taxable_compensation",
+  "taxable_compensation",
+  "previous_employer_taxable_compensation",
+  "gross_taxable_compensation",
+  "column_break_35",
+  "tax_due",
+  "present_employer_tax_withheld",
+  "previous_employer_tax_withheld",
+  "tax_withheld",
+  "pera_tax_credit",
+  "total_tax_withheld",
+  "details_section",
+  "other_benefits_mwe",
+  "de_minimis_benefits",
+  "contributions",
+  "column_break_49",
+  "basic_pay",
+  "overtime_pay",
   "amended_from"
  ],
  "fields": [
@@ -28,20 +65,24 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Period From",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "period_to",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Period To",
-   "reqd": 1
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
-   "options": "Employee"
+   "options": "Employee",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fetch_from": "employee.employee_name",
@@ -54,8 +95,7 @@
    "fieldname": "employee_tin",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Taxpayer Identification Number",
-   "reqd": 1
+   "label": "Taxpayer Identification Number"
   },
   {
    "fieldname": "employee_rdo",
@@ -95,6 +135,7 @@
    "label": "Employee ID"
   },
   {
+   "fetch_from": "employee.cell_number",
    "fieldname": "employee_contact_number",
    "fieldtype": "Data",
    "label": "Employee Contact Number"
@@ -107,12 +148,203 @@
    "options": "BIR Form 2316",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "employer_tin",
+   "fieldtype": "Data",
+   "label": "Employer TIN"
+  },
+  {
+   "fieldname": "basic_rate_per_day",
+   "fieldtype": "Currency",
+   "label": "Statutory Minimum Wage rate per day"
+  },
+  {
+   "fieldname": "basic_rate_per_month",
+   "fieldtype": "Currency",
+   "label": "Statutory Minimum Wage rate per month"
+  },
+  {
+   "default": "0",
+   "fieldname": "minimum_wage_earner",
+   "fieldtype": "Check",
+   "label": "Minimum Wage Earner"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "employer_name",
+   "fieldtype": "Data",
+   "label": "Employer Name"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employer Details"
+  },
+  {
+   "fieldname": "employer_address",
+   "fieldtype": "Small Text",
+   "label": "Employer Address"
+  },
+  {
+   "fieldname": "employer_zip",
+   "fieldtype": "Data",
+   "label": "Employer Zip"
+  },
+  {
+   "fieldname": "employer_type",
+   "fieldtype": "Select",
+   "label": "Employer Type",
+   "options": "Main\nSecondary"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "previous_employer_name",
+   "fieldtype": "Data",
+   "label": "Previous Employer Name"
+  },
+  {
+   "fieldname": "previous_employer_tin",
+   "fieldtype": "Data",
+   "label": "Previous Employer TIN"
+  },
+  {
+   "fieldname": "previous_employer_address",
+   "fieldtype": "Small Text",
+   "label": "Previous Employer Address"
+  },
+  {
+   "fieldname": "previous_employer_zip",
+   "fieldtype": "Data",
+   "label": "Previous Employer Zip"
+  },
+  {
+   "fieldname": "summary_section",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "gross_compensation",
+   "fieldtype": "Currency",
+   "label": "Gross Compensation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "non_taxable_compensation",
+   "fieldtype": "Currency",
+   "label": "Non-Taxable Compensation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "taxable_compensation",
+   "fieldtype": "Currency",
+   "label": "Taxable Compensation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gross_taxable_compensation",
+   "fieldtype": "Currency",
+   "label": "Gross Taxable Compensation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_due",
+   "fieldtype": "Currency",
+   "label": "Tax Due"
+  },
+  {
+   "fieldname": "present_employer_tax_withheld",
+   "fieldtype": "Currency",
+   "label": "Tax Withheld by Present Employer"
+  },
+  {
+   "fieldname": "previous_employer_tax_withheld",
+   "fieldtype": "Currency",
+   "label": "Tax Withheld by Previous Employer"
+  },
+  {
+   "fieldname": "tax_withheld",
+   "fieldtype": "Currency",
+   "label": "Tax Withheld by Employers",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pera_tax_credit",
+   "fieldtype": "Currency",
+   "label": "5% Tax Credit (PERA Act of 2008)"
+  },
+  {
+   "fieldname": "total_tax_withheld",
+   "fieldtype": "Currency",
+   "label": "Total Tax Withheld",
+   "read_only": 1
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "previous_employer_taxable_compensation",
+   "fieldtype": "Currency",
+   "label": "Previous Employer Taxable Compensation"
+  },
+  {
+   "fieldname": "retrieve_data",
+   "fieldtype": "Button",
+   "label": "Retrieve Data",
+   "options": "retrieve_data"
+  },
+  {
+   "fieldname": "employee_foreign_address",
+   "fieldtype": "Small Text",
+   "label": "Foreign Address"
+  },
+  {
+   "fieldname": "other_benefits_mwe",
+   "fieldtype": "Currency",
+   "label": "13th Month Pay and Other Benefits (maximum of P90,000)"
+  },
+  {
+   "fieldname": "de_minimis_benefits",
+   "fieldtype": "Currency",
+   "label": "De Minimis Benefits"
+  },
+  {
+   "fieldname": "contributions",
+   "fieldtype": "Currency",
+   "label": "SSS, GSIS, PHIC & PAG-IBIG Contributions and Union Dues (Employee share only)"
+  },
+  {
+   "fieldname": "basic_pay",
+   "fieldtype": "Currency",
+   "label": "Basic Pay"
+  },
+  {
+   "fieldname": "overtime_pay",
+   "fieldtype": "Currency",
+   "label": "Overtime Pay"
+  },
+  {
+   "fieldname": "column_break_49",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-11 00:09:03.832006",
+ "modified": "2023-01-20 00:31:42.440983",
  "modified_by": "Administrator",
  "module": "ERPNext PH Payroll",
  "name": "BIR Form 2316",
