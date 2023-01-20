@@ -92,14 +92,17 @@ class BIRForm2316(BIRForm):
 		self.present_employer_tax_withheld = amounts.get('PH_WTAX', 0)
 		self.recompute_totals()
 
+	def safe_get_float(self, key):
+		return float(self.get(key, default=0) or 0)
+
 	@frappe.whitelist()
 	def recompute_totals(self):
-		self.non_taxable_compensation = float(self.get('basic_salary', default=0)) + float(self.get('holiday_pay_mwe', default=0)) + float(self.get('overtime_pay_mwe', default=0)) + float(self.get('night_differential_mwe', default=0)) + float(self.get('hazard_pay_mwe', default=0)) + float(self.get('other_benefits_mwe', default=0)) + float(self.get('de_minimis_benefits', default=0)) + float(self.get('contributions', default=0)) + float(self.get('other_compensation_mwe', default=0)) + float(self.get('total_non_taxable_compensation', default=0))
-		self.taxable_compensation = float(self.get('basic_pay', default=0)) + float(self.get('overtime_pay', default=0))
-		self.gross_compensation = float(self.get('non_taxable_compensation', default=0)) + float(self.get('taxable_compensation', default=0))
-		self.gross_taxable_compensation = float(self.get('taxable_compensation', default=0) or 0) + float(self.get('previous_employer_taxable_compensation', default=0) or 0)
-		self.tax_withheld = float(self.get('present_employer_tax_withheld', default=0) or 0) + float(self.get('previous_employer_tax_withheld', default=0) or 0)
-		self.total_tax_withheld = float(self.get('pera_tax_credit', default=0) or 0) + float(self.get('tax_withheld', default=0) or 0)
+		self.non_taxable_compensation = self.safe_get_float('basic_salary') + self.safe_get_float('holiday_pay_mwe') + self.safe_get_float('overtime_pay_mwe') + self.safe_get_float('night_differential_mwe') + self.safe_get_float('hazard_pay_mwe') + self.safe_get_float('other_benefits_mwe') + self.safe_get_float('de_minimis_benefits') + self.safe_get_float('contributions') + self.safe_get_float('other_compensation_mwe') + self.safe_get_float('total_non_taxable_compensation')
+		self.taxable_compensation = self.safe_get_float('basic_pay') + self.safe_get_float('overtime_pay')
+		self.gross_compensation = self.safe_get_float('non_taxable_compensation') + self.safe_get_float('taxable_compensation')
+		self.gross_taxable_compensation = self.safe_get_float('taxable_compensation') + self.safe_get_float('previous_employer_taxable_compensation')
+		self.tax_withheld = self.safe_get_float('present_employer_tax_withheld') + self.safe_get_float('previous_employer_tax_withheld')
+		self.total_tax_withheld = self.safe_get_float('pera_tax_credit') + self.safe_get_float('tax_withheld')
 
 	def before_insert(self):
 		self.retrieve_data()
