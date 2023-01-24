@@ -6,9 +6,6 @@
   "identification_document_type": "TIN",
   "modified": "2023-01-19 20:48:14.575060",
   "name": "TIN",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
   "region": "PH"
  },
  {
@@ -18,9 +15,6 @@
   "identification_document_type": "HDMF ID",
   "modified": "2023-01-19 20:48:14.611517",
   "name": "HDMF ID",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
   "region": "PH"
  },
  {
@@ -30,9 +24,6 @@
   "identification_document_type": "PHIC ID",
   "modified": "2023-01-19 20:48:14.615883",
   "name": "PHIC ID",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
   "region": "PH"
  },
  {
@@ -42,9 +33,6 @@
   "identification_document_type": "SSS ID",
   "modified": "2023-01-19 20:48:14.619757",
   "name": "SSS ID",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
   "region": "PH"
  },
  {
@@ -54,9 +42,6 @@
   "identification_document_type": "Passport",
   "modified": "2023-01-19 20:48:14.623724",
   "name": "Passport",
-  "parent": null,
-  "parentfield": null,
-  "parenttype": null,
   "region": "PH"
  }
 ]
