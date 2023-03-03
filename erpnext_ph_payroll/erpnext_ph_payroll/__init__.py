@@ -74,7 +74,7 @@ def calculate_withholding_tax(date, salary_slip, basis='monthly'):
 	net_pay = salary_slip.gross_pay
 
 	for deduction in (salary_slip.get('deductions') or []):
-		if deduction.salary_component in ['PH - HDMF Contribution', 'PH - PHIC Contribution', 'PH - SSS Contribution']:
+		if deduction.salary_component in ['PH - HDMF Contribution', 'PH - PHIC Contribution', 'PH - SSS Contribution'] or deduction.exempted_from_income_tax:
 			net_pay -= deduction.amount
 
 	pay = net_pay
