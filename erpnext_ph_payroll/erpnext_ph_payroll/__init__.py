@@ -41,7 +41,7 @@ def salary_data_extensions(salary_slip):
     'ph_sss': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_contribution'),
     'ph_sss_er': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employer_contribution'),
     'ph_sss_ec': lambda pay: calculate_sss_contribution(pay, salary_slip.end_date, 'employee_compensation'),
-    'ph_wtax': lambda: calculate_withholding_tax(salary_slip.posting_date, salary_slip),
+    'ph_wtax': lambda adjustment=0: calculate_withholding_tax(salary_slip.posting_date, salary_slip, adjustment=adjustment),
     'ph_13th_month_pay': lambda: calculate_13th_month_pay(salary_slip)
   }
 
@@ -70,14 +70,15 @@ def calculate_sss_contribution(pay, date, field='employee_contribution'):
 
 	return 0
 
-def calculate_withholding_tax(date, salary_slip, basis='monthly'):
+def calculate_withholding_tax(date, salary_slip, adjustment=0):
 	net_pay = salary_slip.gross_pay
 
 	for deduction in (salary_slip.get('deductions') or []):
-		if deduction.salary_component in ['PH - HDMF Contribution', 'PH - PHIC Contribution', 'PH - SSS Contribution'] or deduction.exempted_from_income_tax:
+		if deduction.salary_component in ['PH - HDMF Contribution', 'PH - PHIC Contribution', 'PH - SSS Contribution']:
 			net_pay -= deduction.amount
 
 	pay = net_pay
+	pay += adjustment
 
 	withholding_table = frappe.db.get_list('PH Withholding Tax Table',
 		filters=[
