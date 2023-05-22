@@ -3,16 +3,46 @@
 
 import frappe
 from frappe import utils
-from erpnext_ph_payroll.erpnext_ph_payroll.doctype.bir_form import BIRForm
+from frappe.model.document import Document
 
-class BIRForm2316(BIRForm):
+
+class BIRForm2316(Document):
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+
+		self.retrieve_data()
+		self.print_values = self.get_form_fill_data()
+
+	def get_form_fill_data(self):
+		data = self.get_valid_dict()
+		formatted_data = self.get_valid_dict()
+
+		for field in self.meta.fields:
+			if data.get(field.fieldname) != None:
+				formatted_data[field.fieldname] = frappe.format(data.get(field.fieldname), field)
+
+		data = self.format_data(data, formatted_data)
+		remove_list = []
+
+		for key in formatted_data:
+			if data.get(key) == None or data.get(key) == '':
+				remove_list.append(key)
+		
+		for key in remove_list:
+			formatted_data.pop(key)
+
+		return formatted_data
+
 	def format_data(self, data, formatted_data):
 		formatted_data.year = utils.get_datetime(data.period_from).year
-		formatted_data.period_from = utils.get_datetime(data.period_from).strftime('%m%d')
-		formatted_data.period_to = utils.get_datetime(data.period_to).strftime('%m%d')
+		formatted_data.period_from = utils.get_datetime(
+				data.period_from).strftime('%m%d')
+		formatted_data.period_to = utils.get_datetime(
+				data.period_to).strftime('%m%d')
 
 		if data.get('employee_dob'):
-			formatted_data.employee_dob = utils.get_datetime(data.employee_dob).strftime('%m%d%Y')
+			formatted_data.employee_dob = utils.get_datetime(
+					data.employee_dob).strftime('%m%d%Y')
 
 		if formatted_data.employer_type == 'Main':
 			formatted_data.is_main_employer = 'X'
@@ -23,14 +53,18 @@ class BIRForm2316(BIRForm):
 			formatted_data.is_mwe = 'X'
 
 		if formatted_data.get('employee_contact_number'):
-			formatted_data['employee_contact_number'] = formatted_data['employee_contact_number'].replace(' ', '')
+			formatted_data['employee_contact_number'] = formatted_data['employee_contact_number'].replace(
+					' ', '')
 			if formatted_data.employee_contact_number[0] == '+':
 				formatted_data['employee_contact_number'] = formatted_data['employee_contact_number'][1:]
 			if formatted_data.employee_contact_number[0:2] == '63':
-				formatted_data['employee_contact_number'] = '0' + formatted_data['employee_contact_number'][2:]
+				formatted_data['employee_contact_number'] = '0' + \
+						formatted_data['employee_contact_number'][2:]
 
-		formatted_data['total_non_taxable_compensation'] = formatted_data.get('non_taxable_compensation')
-		formatted_data['total_taxable_compensation'] = formatted_data.get('taxable_compensation')
+		formatted_data['total_non_taxable_compensation'] = formatted_data.get(
+				'non_taxable_compensation')
+		formatted_data['total_taxable_compensation'] = formatted_data.get(
+				'taxable_compensation')
 
 		return formatted_data
 
@@ -104,8 +138,14 @@ class BIRForm2316(BIRForm):
 		self.tax_withheld = self.safe_get_float('present_employer_tax_withheld') + self.safe_get_float('previous_employer_tax_withheld')
 		self.total_tax_withheld = self.safe_get_float('pera_tax_credit') + self.safe_get_float('tax_withheld')
 
-	def before_insert(self):
-		self.retrieve_data()
+	def get_print_value(self, key, index = -1):
+		if self.print_values.get(key, None):
+			value = str(self.print_values.get(key))
 
-	def get_form_fill_template(self):
-		return 'PH Payroll - BIR-2316'
+			if index > -1:
+				if index < len(value):
+					return value[index]
+			else:
+				return value
+
+		return ''

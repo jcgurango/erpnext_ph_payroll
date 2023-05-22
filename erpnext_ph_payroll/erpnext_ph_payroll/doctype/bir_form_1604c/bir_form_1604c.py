@@ -3,7 +3,7 @@
 
 import frappe
 from frappe import utils
-from erpnext_ph_payroll.erpnext_ph_payroll.doctype.bir_form import BIRForm
+from frappe.model.document import Document
 
 months = {
 	'': '',
@@ -21,7 +21,32 @@ months = {
 	'December': '12'
 }
 
-class BIRForm1604C(BIRForm):
+class BIRForm1604C(Document):
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+
+		self.print_values = self.get_form_fill_data()
+
+	def get_form_fill_data(self):
+		data = self.get_valid_dict()
+		formatted_data = self.get_valid_dict()
+
+		for field in self.meta.fields:
+			if data.get(field.fieldname) != None:
+				formatted_data[field.fieldname] = frappe.format(data.get(field.fieldname), field)
+
+		data = self.format_data(data, formatted_data)
+		remove_list = []
+
+		for key in formatted_data:
+			if data.get(key) == None or data.get(key) == '':
+				remove_list.append(key)
+		
+		for key in remove_list:
+			formatted_data.pop(key)
+
+		return formatted_data
+
 	def format_data(self, data, formatted_data):
 		data['total_taxes_withheld'] = 0
 		data['total_adjustment'] = 0
@@ -54,9 +79,6 @@ class BIRForm1604C(BIRForm):
 
 		return formatted_data
 
-	def get_form_fill_template(self):
-		return 'PH Payroll - BIR-1604-C'
-
 	def before_insert(self):
 		for month in months.keys():
 			if month:
@@ -67,3 +89,15 @@ class BIRForm1604C(BIRForm):
 	def validate(self):
 		for remittance in self.get('summary_of_remittances'):
 			remittance.total_amount_remitted = (remittance.get('taxes_withheld') or 0) + (remittance.get('adjustment') or 0) + (remittance.get('penalties') or 0)
+
+	def get_print_value(self, key, index = -1):
+		if self.print_values.get(key, None):
+			value = str(self.print_values.get(key))
+
+			if index > -1:
+				if index < len(value):
+					return value[index]
+			else:
+				return value
+
+		return ''
