@@ -1,0 +1,417 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:BIR1601C-{company}-{for_the_month}",
+ "creation": "2023-12-19 15:09:39.015512",
+ "default_print_format": "BIR Form 2316",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "for_the_month",
+  "company",
+  "amended_return",
+  "any_taxes_withheld",
+  "part0_section_break",
+  "number_of_sheets_attached",
+  "part1_section",
+  "tax_id",
+  "pres_rdo",
+  "company_name",
+  "company_address",
+  "zip",
+  "column_break_dttt3",
+  "phone_no",
+  "category_of_withholding_agent",
+  "email",
+  "special_law",
+  "part2_section",
+  "total_amount_compensation",
+  "statutory_minimum",
+  "holiday_pay",
+  "thirteenth_month_pay",
+  "de_minimis",
+  "mandatory_contributions",
+  "other_non_taxable",
+  "total_non_taxable",
+  "total_taxable_compensation",
+  "less_taxable",
+  "net_taxable",
+  "total_taxes_withheld",
+  "add_less_adjustment",
+  "taxes_withheld_for_remittance",
+  "less_tax_remitted",
+  "other_remittances_made",
+  "total_remittances_made",
+  "tax_still_due",
+  "add_penalties_break",
+  "surcharge",
+  "interest",
+  "compromise",
+  "total_penalties",
+  "column_break_yvjnk",
+  "total_amount_still_due",
+  "part_iii_section",
+  "cash_bank_debit_memo",
+  "check",
+  "tax_debit_memo",
+  "others",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "for_the_month",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "For the Month",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "amended_return",
+   "fieldtype": "Select",
+   "label": "Amended Return?",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "any_taxes_withheld",
+   "fieldtype": "Select",
+   "label": "Any Taxes Withheld?",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "number_of_sheets_attached",
+   "fieldtype": "Int",
+   "label": "Number of Sheet/s Attached"
+  },
+  {
+   "fieldname": "tax_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Taxpayer Identification Number"
+  },
+  {
+   "fieldname": "pres_rdo",
+   "fieldtype": "Data",
+   "label": "RDO Code"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Withholding Agent's Name"
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Data",
+   "label": "Registered Address"
+  },
+  {
+   "fieldname": "category_of_withholding_agent",
+   "fieldtype": "Select",
+   "label": "Category of Withholding Agent",
+   "options": "Private\nGovernment"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email Address",
+   "options": "Email"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Currency",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "BIR Form 1601-C",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Currency",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "BIR Form 1601-C",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "part1_section",
+   "fieldtype": "Section Break",
+   "label": "Part I"
+  },
+  {
+   "fieldname": "special_law",
+   "fieldtype": "Select",
+   "label": "Are there payees availing of tax relief under Special Law or International tax Treaty?",
+   "options": "No\nYes"
+  },
+  {
+   "fieldname": "part2_section",
+   "fieldtype": "Section Break",
+   "label": "Part II"
+  },
+  {
+   "fieldname": "part0_section_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dttt3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount_compensation",
+   "fieldtype": "Currency",
+   "label": "Total Amount Compensation",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "statutory_minimum",
+   "fieldtype": "Currency",
+   "label": "Statutory Minimum Wage for Minimum Wage Earners (MWEs)",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "holiday_pay",
+   "fieldtype": "Currency",
+   "label": "Holiday Pay, Overtime Pay, Night Shift Differential Pay, Hazard Pay (for MWEs only)"
+  },
+  {
+   "default": "0",
+   "fieldname": "thirteenth_month_pay",
+   "fieldtype": "Currency",
+   "label": "13th Month Pay and Other Benefits",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "de_minimis",
+   "fieldtype": "Currency",
+   "label": "De Minimis Benifits",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "mandatory_contributions",
+   "fieldtype": "Currency",
+   "label": "SSS, GSIS, PHIC, HDMF Mandatory Contributions & Union Dues (employee's share only)"
+  },
+  {
+   "default": "0",
+   "fieldname": "other_non_taxable",
+   "fieldtype": "Currency",
+   "label": "Other Non-Taxable Compensation (specify)"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_non_taxable",
+   "fieldtype": "Currency",
+   "label": "Total Non-Taxable Compensation (Sum of Items 15 to 20)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_taxable_compensation",
+   "fieldtype": "Currency",
+   "label": "Total Taxable Compensation (Item 14 Less Item 21)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "less_taxable",
+   "fieldtype": "Currency",
+   "label": "Less: Taxable compensation not subject to withholding tax (for employees, other than MWEs, receiving P250,000 & below for the year)"
+  },
+  {
+   "default": "0",
+   "fieldname": "net_taxable",
+   "fieldtype": "Currency",
+   "label": "Net Taxable Compensation (Item 22 Less item 23)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_taxes_withheld",
+   "fieldtype": "Currency",
+   "label": "Total Taxes Withheld"
+  },
+  {
+   "default": "0",
+   "fieldname": "add_less_adjustment",
+   "fieldtype": "Currency",
+   "label": "Add/(Less): Adjustment of Taxes Withheld from Previous Month/s (From Part IV-Schedule 1, Item 4)"
+  },
+  {
+   "default": "0",
+   "fieldname": "taxes_withheld_for_remittance",
+   "fieldtype": "Currency",
+   "label": "Taxes Withheld for Remittance (Sum of Items 25 and 26)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "less_tax_remitted",
+   "fieldtype": "Currency",
+   "label": "Less: Tax Remitted in Return Previously Filed, if this is an amended return"
+  },
+  {
+   "default": "0",
+   "fieldname": "other_remittances_made",
+   "fieldtype": "Currency",
+   "label": "Other Remittances Made (specify)"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_remittances_made",
+   "fieldtype": "Currency",
+   "label": "Total tax Remittances Made (Sum of Items 28 and 29)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tax_still_due",
+   "fieldtype": "Currency",
+   "label": "Tax Still Due/(Over-remittance)(Item 27 Less Item 30)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_penalties_break",
+   "fieldtype": "Section Break",
+   "label": "Add: Penalties"
+  },
+  {
+   "default": "0",
+   "fieldname": "surcharge",
+   "fieldtype": "Currency",
+   "label": "Surcharge"
+  },
+  {
+   "default": "0",
+   "fieldname": "interest",
+   "fieldtype": "Currency",
+   "label": "Interest"
+  },
+  {
+   "default": "0",
+   "fieldname": "compromise",
+   "fieldtype": "Currency",
+   "label": "Compromise"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_penalties",
+   "fieldtype": "Currency",
+   "label": "Total Penalties (Sum of items 32 to 34)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_yvjnk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amount_still_due",
+   "fieldtype": "Currency",
+   "label": "TOTAL AMOUNT STILL DUE/(Over-remittance)(Sum of Items 31 and 35)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "part_iii_section",
+   "fieldtype": "Section Break",
+   "label": "Part III"
+  },
+  {
+   "fieldname": "cash_bank_debit_memo",
+   "fieldtype": "Currency",
+   "label": "Cash/Bank Debit Memo"
+  },
+  {
+   "fieldname": "check",
+   "fieldtype": "Currency",
+   "label": "Check"
+  },
+  {
+   "fieldname": "tax_debit_memo",
+   "fieldtype": "Currency",
+   "label": "Tax Debit Memo"
+  },
+  {
+   "fieldname": "others",
+   "fieldtype": "Currency",
+   "label": "Others"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Contact Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "zip",
+   "fieldtype": "Data",
+   "label": "Zip Code"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-12-29 13:03:55.864077",
+ "modified_by": "Administrator",
+ "module": "ERPNext PH Payroll",
+ "name": "BIR Form 1601-C",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
